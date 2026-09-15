@@ -1,0 +1,9 @@
+{
+  "name": "Quiz Biblique — Flashcards",
+  "short_name": "Quiz Biblique",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f2e8",
+  "theme_color": "#254a43",
+  "lang": "fr"
+}

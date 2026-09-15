@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#254a43">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="BijbelQuiz">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <title>BijbelQuiz</title>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <p class="eyebrow">LEER · DENK NA · ONTHOUD</p>
+      <h1>BijbelQuiz</h1>
+      <p class="subtitle">Maak en oefen je eigen bijbelse flashcards.</p>
+    </header>
+    <nav class="tabs" aria-label="BijbelQuiz onderdelen">
+      <button id="studyTab" class="tab active" type="button" aria-selected="true">Oefenen</button>
+      <button id="createTab" class="tab" type="button" aria-selected="false">Nieuwe quiz</button>
+    </nav>
+    <section id="studyPanel">
+      <section class="progress-area" aria-label="Voortgang">
+        <div class="progress-label"><span id="counter">Kaart 1 van 20</span><span id="knownCount">0 gekend</span></div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+      </section>
+      <button id="flashcard" class="flashcard" type="button" aria-label="Toon het antwoord">
+        <span class="card-side card-front"><span class="card-type">VRAAG</span><span id="question" class="card-question"></span><span class="tap-hint">Tik op de kaart om het antwoord te zien</span></span>
+        <span class="card-side card-back"><span class="card-type">ANTWOORD</span><span id="answer" class="card-answer"></span><span class="context-title">Bijbelse context</span><span id="context" class="card-context"></span><span id="verse" class="verse"></span></span>
+      </button>
+      <p id="status" class="status" aria-live="polite">Denk even na en draai daarna de kaart om.</p>
+      <section class="actions" aria-label="Beoordeel deze kaart"><button id="again" class="secondary" type="button">Nog oefenen</button><button id="known" class="primary" type="button">Ik wist het</button></section>
+      <nav class="navigation" aria-label="Navigatie door de kaarten"><button id="previous" type="button">← Vorige</button><button id="random" type="button">Willekeurig</button><button id="next" type="button">Volgende →</button></nav>
+    </section>
+    <section id="createPanel" hidden>
+      <div class="generator-intro"><p class="eyebrow">AI-QUIZMAKER</p><h2>Waarover wil je leren?</h2><p>De AI maakt nieuwe kaarten in het Nederlands, met een antwoord, context en bijbelverwijzing.</p></div>
+      <form id="generatorForm" class="generator-form">
+        <label>Onderwerp<input id="topic" name="topic" class="input" maxlength="120" required placeholder="Bijvoorbeeld: gebed, geloof, David of Gods Koninkrijk"></label>
+        <div class="form-grid"><label>Aantal kaarten<select id="amount" name="amount"><option value="5">5</option><option value="10" selected>10</option><option value="20">20</option><option value="30">30</option></select></label><label>Niveau<select id="level" name="level"><option value="Eenvoudig">Eenvoudig</option><option value="Gemiddeld" selected>Gemiddeld</option><option value="Verdiepend">Verdiepend</option></select></label></div>
+        <label>Voor wie?<select id="audience" name="audience"><option value="Kinderen">Kinderen</option><option value="Tieners">Tieners</option><option value="Volwassenen" selected>Volwassenen</option></select></label>
+        <label>Jouw toegangscode<input id="accessCode" name="accessCode" class="input" type="password" autocomplete="current-password" required placeholder="De code die je zelf hebt ingesteld"></label>
+        <button id="generate" class="primary generate" type="submit">Maak mijn quiz</button>
+      </form>
+      <p id="generatorStatus" class="generator-status" role="status" aria-live="polite"></p>
+      <aside class="notice"><strong>Goed om te weten:</strong> controleer belangrijke citaten en verwijzingen altijd in je eigen Bijbel. De AI helpt bij het leren, maar vervangt geen persoonlijke studie.</aside>
+      <button id="restoreDefault" class="link-button" type="button">Terug naar de standaardquiz</button>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
